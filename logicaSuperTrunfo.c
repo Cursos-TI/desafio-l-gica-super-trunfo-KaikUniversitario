@@ -109,30 +109,104 @@ int main() {
 
 				
 				/****** Area de comparação das cartas*/	
-
-		printf("Vamos fazer a comparação das cartas!\n");
 		
-	printf("a carta 1 tem: %d de popupulação, ja a carta 2 tem: %d de população.\n\n", populacao, populacao2); // comparação de população.
-	printf("a carta 1 tem: %d km² de area, ja a carta 2 tem: %d km² de area.\n\n", area, area2); // comparação de area.
-	printf("a carta 1 tem: %lld de PIB, ja a carta 2 tem: %lld de PIB.\n\n", pib, pib2); // comparação de PIB.
-	printf("a carta 1 tem: %.2f de densidade, ja a carta 2 tem: %.2f de densidade.\n\n\n", densidade, densidade2); // comparação de densidade.
-	
+		int opcao;
+		
+		printf("Vamos fazer a comparação das cartas!\n");
+		printf("Escolha qual atributo devemos comparar para deterinar o vencedor!\n");
+
+			printf("opção 1: Comparação de população.\n");		
+			printf("opção 2: Comparação de area.\n");		
+			printf("opção 3: Comparação de PIB.\n");
+			printf("opção 4: Comparação de densidade populacional. (menor valor vence.)\n");
+			printf("opção 5: Comparação de PIB per capta.\n");	
+			printf("opção 6: Comparação de super poder.\n");
+			
+		printf("Qual opção você deseja?\n");
+		scanf("%d", &opcao);
+		
 				/*****fim comparação/
 				
 												
 				/******** Quem vence? */
-		
-		printf("Agora,vamos ver qual carta é vencedora, apartir da sua propriedade de Densidade:\n\n");
-		
-			if(densidade < densidade2){		//Verifica a condição, se densidade é menor que densidade2.
-				printf("Carta 1 é a vecedora!\n\n");	//sendo verdadeira, imprime está menssagem.
-			}else{
-				printf("Carta 2 é a vencedora!\n\n"); // se não,esta.
+				
+			switch(opcao){
+				case 1: //opcao de numero 1
+					printf("Comparação de população!\n");		
+				
+					if(populacao > populacao2){	// teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
+						printf("### Carta 1 vence.\n");
+						printf("Com o valor de população: %d. \n\n", populacao);
+					}else{
+						printf("### Carta 2 vence. \n");
+						printf("Com o valor de população: %d. \n\n", populacao2);
+					}
+				break;
+				
+				case 2:  //opcao de numero 2  
+					printf("Comparação de area!\n");		
+				
+					if(area > area2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
+						printf("### Carta 1 vence.\n");
+						printf("Com o valor de area: %d. \n\n", area);
+					}else{
+						printf("### Carta 2 vence. \n");
+						printf("Com o valor de area: %d. \n\n", area2);
+					}
+				break;
+				
+				case 3:  //opcao de numero 3
+					printf("Comparação de PIB!\n");		
+				
+					if(pib > pib2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
+						printf("### Carta 1 vence.\n");
+						printf("Com o valor de PIB: %lld. \n\n", pib);
+					}else{
+						printf("### Carta 2 vence. \n");
+						printf("Com o valor de PIB: %lld. \n\n", pib2);
+					}
+				break;
+				
+				case 4:  //opcao de numero 4
+					printf("Comparação de densidade populacional!\n");		
+				
+					if(densidade < densidade2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
+						printf("### Carta 1 vence.\n");
+						printf("Com o valor de densidade: %.2f. \n\n", densidade);
+					}else{
+						printf("### Carta 2 vence. \n");
+						printf("Com o valor de densidade: %.2f. \n\n", densidade2);
+					}
+				break;
+				
+				case 5:  //opcao de numero 5
+					printf("Comparação de PIB per capta!\n");		
+				
+					if(PIBpercapita > PIBpercapita2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
+						printf("### Carta 1 vence.\n");
+						printf("Com o valor de PIB per capta: %.2f. \n\n", PIBpercapita);
+					}else{
+						printf("### Carta 2 vence. \n");
+						printf("Com o valor de PIB per capta: %.2f. \n\n", PIBpercapita2);
+					}
+				break;
+				
+				case 6:  //opcao de numero 6
+					printf("Comparação de Super poder!\n");		
+				
+					if(soma_propriedades > soma_propriedades2){ // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
+						printf("### Carta 1 vence.\n");
+						printf("Com o valor de super poder: %d. \n", soma_propriedades);
+					}else{
+						printf("### Carta 2 vence. \n");
+						printf("Com o valor de super poder: %d. \n\n", soma_propriedades2);
+					}
+				break;
+				
+				default:
+					printf("Opção invalida! Tente novamente.\n"); // Escreve caso a opção escolhida não exista.
 			}
-			
-			if(densidade == densidade2){  // verifica se deu empate.
-				printf("Houve um empate!\n\n");
-			}
+				
 			
 				/*****Fim quem vence*/
 	
