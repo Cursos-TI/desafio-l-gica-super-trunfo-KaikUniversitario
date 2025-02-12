@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Criado por Kaik Rodrigues.
+//Criado por Kaik Rodrigues. 
 //Observação: montei o codigo por outro compilador, me familiarizei melhor com ele!(Dev C++).
 
 
 int main() {
-				
+			
 				/*****Começo de entrada e saida de dados da primeira carta...*/
 				
         char CodigoDaCarta[4]; // Codigo da carta.
         char nome[100];	// nome da cidade.
-        int populacao; // população da cidade.
-        int area; // area da cidade.
-        long long int pib; // PIB da cidade.
-        int PontosTuristicos; // Numero de pontos turisticos da cidade.	
+        unsigned int populacao; // população da cidade.
+        unsigned int area; // area da cidade.
+        unsigned long long int pib; // PIB da cidade.
+        unsigned int PontosTuristicos; // Numero de pontos turisticos da cidade.	
 				
 					
 				//inicio super trunfo (introdução). 
@@ -30,20 +30,20 @@ int main() {
 	printf("O nome digitado foi: %s. \n\n", nome);
 	
 	printf("Digite a população (sem abreviações e pontos):\n"); // pedir população da cidade.
-	scanf("%d", &populacao);
-	printf("A população foi: %d. \n\n", populacao); // confirmar codigo coletado.
+	scanf("%u", &populacao);
+	printf("A população foi: %u. \n\n", populacao); // confirmar codigo coletado.
 	
 	printf("Digite a area (Sem pontos):\n"); // pedir area da cidade.
-	scanf("%d", &area);
+	scanf("%u", &area);
 	printf("A area é: %u Km². \n\n", area); // confirmar dado coletado.
 	
 	printf("Digite o PIB da cidade (sem pontos): \n"); // pedir PIB da cidade.
-	scanf("%lld", &pib);
-	printf("O PIB da cidade foi: %lld. \n\n", pib); // confirmar dado coletado.
+	scanf("%llu", &pib);
+	printf("O PIB da cidade foi: %llu. \n\n", pib); // confirmar dado coletado.
 	
 	printf("Digite o número de pontos turisticos: \n"); // pedir numero de pontos turisticos da cidade.
-	scanf("%d", &PontosTuristicos);
-	printf("O número de pontos turisticos foi: %d. \n\n", PontosTuristicos); // confirmar dado coletado.
+	scanf("%u", &PontosTuristicos);
+	printf("O número de pontos turisticos foi: %u. \n\n", PontosTuristicos); // confirmar dado coletado.
 	
 	
 	    float densidade = (float)populacao /(float) area; // calcular densidade.
@@ -63,10 +63,10 @@ int main() {
 			
         char CodigoDaCarta2[4];
         char nome2[100];
-        int populacao2;
-        int area2;
-        long long int pib2;
-        int PontosTuristicos2;	
+       	unsigned int populacao2;
+    	unsigned int area2;
+        unsigned long long int pib2;
+        unsigned int PontosTuristicos2;	
 	
 	    printf("Agora de as informações da segunda carta:\n\n"); //intrpdução.
 	
@@ -79,20 +79,20 @@ int main() {
 	printf("O nome digitado foi: %s. \n\n", nome2);
 	
 	printf("Digite a população (sem abreviações e pontos):\n");
-	scanf("%d", &populacao2);
-	printf("A população foi: %d. \n\n", populacao2);
+	scanf("%u", &populacao2);
+	printf("A população foi: %u. \n\n", populacao2);
 	
 	printf("Digite a area (Sem pontos):\n");
-	scanf("%d", &area2);
+	scanf("%u", &area2);
 	printf("A area foi: %u Km². \n\n", area2);
 	
 	printf("Digite o PIB da cidade (sem pontos): \n");
-	scanf("%lld", &pib2);
-	printf("O PIB da cidade foi: %lld. \n\n", pib2);
+	scanf("%llu", &pib2);
+	printf("O PIB da cidade foi: %llu. \n\n", pib2);
 	
 	printf("Digite o número de pontos turisticos: \n");
-	scanf("%d", &PontosTuristicos2);
-	printf("O número de pontos turisticos foi: %d. \n\n", PontosTuristicos2);
+	scanf("%u", &PontosTuristicos2);
+	printf("O número de pontos turisticos foi: %u. \n\n", PontosTuristicos2);
 	
 	
         float densidade2 = (float)populacao2 /(float) area2;
@@ -108,107 +108,267 @@ int main() {
 			/******Fim de entrada e saida de dados da Segunda carta...*/
 
 				
-				/****** Area de comparação das cartas*/	
+				/****** Menu de comparação das cartas*/	
 		
 		int opcao;
+		int tentar = 0;
 		
-		printf("Vamos fazer a comparação das cartas!\n");
-		printf("Escolha qual atributo devemos comparar para deterinar o vencedor!\n");
-
-			printf("opção 1: Comparação de população.\n");		
-			printf("opção 2: Comparação de area.\n");		
-			printf("opção 3: Comparação de PIB.\n");
-			printf("opção 4: Comparação de densidade populacional. (menor valor vence.)\n");
-			printf("opção 5: Comparação de PIB per capta.\n");	
-			printf("opção 6: Comparação de super poder.\n");
-			
+		printf("Vamos fazer a comparação das cartas, usando 2 atributos!\n");
+		printf("Escolha a baixo, quais atributos devemos comparar para deterinar o vencedor!\n");
+			printf("opção 1: Comparação de população e area.\n");		
+			printf("opção 2: Comparação de PIB e desidade populacional.\n");		
+			printf("opção 3: Comparação de PIB per capita e Super poder.\n");
+			printf("opção 4: Comparação de população e PIB.\n");
+			printf("opção 5: Comparação de PIB per capita e PIB.\n");
 		printf("Qual opção você deseja?\n");
 		scanf("%d", &opcao);
 		
-				/*****fim comparação/
+				/*****fim menu comparação/
 				
 												
 				/******** Quem vence? */
 				
+		int vencedor ;
+		int perdedor ;
+		int empate1 ;
+		int empate2 ;
+		int empate3 ;		
+				
 			switch(opcao){
 				case 1: //opcao de numero 1
-					printf("Comparação de população!\n");		
 				
-					if(populacao > populacao2){	// teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
-						printf("### Carta 1 vence.\n");
-						printf("Com o valor de população: %d. \n\n", populacao);
-					}else{
-						printf("### Carta 2 vence. \n");
-						printf("Com o valor de população: %d. \n\n", populacao2);
+					printf("\nVocê escolheu : Comparação de população e area!\n\n");
+					
+					//inicio comparação dos atributos
+					
+							//testes para vencedor, perdedor e empates:
+						vencedor = (populacao > populacao2 && area > area2);
+						perdedor = (populacao < populacao2 && area < area2); 
+						empate1 = (populacao == populacao2 && area == area2);
+						empate2 = (populacao == populacao2 && area != area2);
+						empate3 = (populacao != populacao2 && area == area2);	
+						
+					if(vencedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta); // carta 1 vence
+						
+					}else if(perdedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta2); // carta 2 vence
+						
+					}else if(empate1 == 1){ 
+						printf("Houeve um empate nos 2 atributos, ambas cartas possuem o mesmo valor.\n"); // empate
+						
+					}else if(empate2 == 1 || empate3 == 1){
+						printf("houve uma empate, pelo menos um dos atributos, tem o mesmo valor nas duas cartas.\n");//empate
+						printf("A população da carta 1 foi: %u. \n", populacao);
+						printf("A população da carta 2 foi: %u. \n", populacao2);
+						printf("A area da carta 1 é: %u Km². \n", area);
+						printf("A area da carta 2 é: %u Km². \n", area2);
 					}
-				break;
+							//teste de possivel erro de digitação dos numeros:
+						if(vencedor == 0){
+							if(perdedor == 0){
+								if(empate1 == 0){
+									if(empate2 == 0){
+										if(empate3 == 0){
+											printf("\nNão foi possivel fazer a comparação, não tem vencedor, não tem perdedor, nem empate!\n\n");
+											printf("\nVerifique os numeros e tente novamente!\n\n");
+										}
+									}
+								}
+							}
+						}
+						
+					//fim comparação dos atributos
+				
+					
+					break;// fim case 1
 				
 				case 2:  //opcao de numero 2  
-					printf("Comparação de area!\n");		
-				
-					if(area > area2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
-						printf("### Carta 1 vence.\n");
-						printf("Com o valor de area: %d. \n\n", area);
-					}else{
-						printf("### Carta 2 vence. \n");
-						printf("Com o valor de area: %d. \n\n", area2);
+					printf("\nVocê escolheu : Comparação de PIB e desidade populacional!\n\n");
+					
+					//inicio comparação dos atributos
+					
+							//testes para vencedor, perdedor e empates:
+					vencedor = (pib > pib2 && densidade < densidade2 );
+					perdedor = (pib < pib2 && densidade > densidade2); 
+					empate1 = (pib == pib2 && densidade == densidade2);
+					empate2 = (pib == pib2 && densidade != densidade2);
+					empate3 = (pib != pib2 && densidade == densidade2);
+					
+					if(vencedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta); // carta 1 vence
+						
+					}else if(perdedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta2); // carta 2 vence
+						
+					}else if(empate1 == 1){ 
+						printf("Houeve um empate nos 2 atributos, ambas cartas possuem o mesmo valor.\n");// empate
+						
+					}else if(empate2 == 1 || empate3 == 1){
+						printf("houve uma empate, pelo menos um dos atributos, tem o mesmo valor nas duas cartas.\n"); // empate
+						printf("A densidade da carta 1 foi: %u. \n", densidade);
+						printf("A densidade da carta 2 foi: %u. \n", densidade2);
+						printf("O PIB da carta 1 é: %llu. \n", pib);
+						printf("O PIB da carta 2 é: %llu. \n", pib2);
 					}
-				break;
+							//teste de possivel erro de digitação dos numeros:
+						if(vencedor == 0){
+							if(perdedor == 0){
+								if(empate1 == 0){
+									if(empate2 == 0){
+										if(empate3 == 0){
+											printf("\nNão foi possivel fazer a comparação, não tem vencedor, não tem perdedor, nem empate!\n\n");
+											printf("\nVerifique os numeros e tente novamente!\n\n");
+										}
+									}
+								}
+							}
+						}									
+					//fim comparação dos atributos
+					
+					break; // fim case 2
 				
 				case 3:  //opcao de numero 3
-					printf("Comparação de PIB!\n");		
-				
-					if(pib > pib2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
-						printf("### Carta 1 vence.\n");
-						printf("Com o valor de PIB: %lld. \n\n", pib);
-					}else{
-						printf("### Carta 2 vence. \n");
-						printf("Com o valor de PIB: %lld. \n\n", pib2);
+					printf("\nVocê escolheu : Comparação de PIB per capita e Super poder.\n\n");
+					
+					//inicio comparação dos atributos
+					
+							//testes para vencedor, perdedor e empates:
+						vencedor = (PIBpercapita > PIBpercapita2 && soma_propriedades > soma_propriedades2 );
+						perdedor = (PIBpercapita < PIBpercapita2 && soma_propriedades < soma_propriedades2); 
+						empate1 = (PIBpercapita == PIBpercapita2 && soma_propriedades == soma_propriedades2);
+						empate2 = (PIBpercapita == PIBpercapita2 && soma_propriedades != soma_propriedades2);
+						empate3 = (PIBpercapita != PIBpercapita2 && soma_propriedades == soma_propriedades2);	
+					
+					if(vencedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta);
+						
+					}else if(perdedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta2);
+						
+					}else if(empate1 == 1){ 
+						printf("Houeve um empate nos 2 atributos, ambas cartas possuem o mesmo valor.\n");
+						
+					}else if(empate2 == 1 || empate3 == 1){
+						printf("houve uma empate, pelo menos um dos atributos, tem o mesmo valor nas duas cartas.\n");
+						printf("O super poder da carta 1 foi: %.2f. \n", soma_propriedades);
+						printf("O super poder da carta 2 foi: %.2f. \n", soma_propriedades2);
+						printf("O PIB per capita da carta 1 é: %.2f. \n", PIBpercapita);
+						printf("O PIB per capita da carta 2 é: %.2f. \n", PIBpercapita2);
 					}
-				break;
+							//teste de possivel erro de digitação dos numeros:
+						if(vencedor == 0){
+							if(perdedor == 0){
+								if(empate1 == 0){
+									if(empate2 == 0){
+										if(empate3 == 0){
+											printf("\nNão foi possivel fazer a comparação, não tem vencedor, não tem perdedor, nem empate!\n\n");
+											printf("\nVerifique os numeros e tente novamente!\n\n");
+										}
+									}
+								}
+							}
+						}									
+					//fim comparação dos atributos
+									
+					break; // fimc case 3
 				
 				case 4:  //opcao de numero 4
-					printf("Comparação de densidade populacional!\n");		
-				
-					if(densidade < densidade2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
-						printf("### Carta 1 vence.\n");
-						printf("Com o valor de densidade: %.2f. \n\n", densidade);
-					}else{
-						printf("### Carta 2 vence. \n");
-						printf("Com o valor de densidade: %.2f. \n\n", densidade2);
+					printf("\nVocê escolheu : Comparação de população e PIB.\n\n");
+					
+					//inicio comparação dos atributos
+					
+							//testes para vencedor, perdedor e empates:
+						vencedor = (populacao > populacao2 && pib > pib2);
+						perdedor = (populacao < populacao2 && pib < pib2); 
+						empate1 = (populacao == populacao2 && pib == pib2);
+						empate2 = (populacao == populacao2 && pib != pib2);
+						empate3 = (populacao != populacao2 && pib == pib2);
+						
+						
+					if(vencedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta);
+						
+					}else if(perdedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta2);
+						
+					}else if(empate1 == 1){ 
+						printf("Houeve um empate nos 2 atributos, ambas cartas possuem o mesmo valor.\n");
+						
+					}else if(empate2 == 1 || empate3 == 1){
+						printf("houve uma empate, pelo menos um dos atributos, tem o mesmo valor nas duas cartas.\n");
+						printf("A população da carta 1 foi: %u . \n", populacao);
+						printf("A população da carta 2 foi: %u . \n", populacao2);
+						printf("O PIB da carta 1 é: %.2f . \n", pib);
+						printf("O PIB da carta 2 é: %.2f . \n", pib2);
 					}
-				break;
+							//teste de possivel erro de digitação dos numeros:
+						if(vencedor == 0){
+							if(perdedor == 0){
+								if(empate1 == 0){
+									if(empate2 == 0){
+										if(empate3 == 0){
+											printf("\nNão foi possivel fazer a comparação, não tem vencedor, não tem perdedor, nem empate!\n\n");
+											printf("\nVerifique os numeros e tente novamente!\n\n");
+										}
+									}
+								}
+							}
+						}									
+					//fim comparação dos atributos
+					
+					break; // fim case 4
 				
 				case 5:  //opcao de numero 5
-					printf("Comparação de PIB per capta!\n");		
-				
-					if(PIBpercapita > PIBpercapita2){  // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
-						printf("### Carta 1 vence.\n");
-						printf("Com o valor de PIB per capta: %.2f. \n\n", PIBpercapita);
-					}else{
-						printf("### Carta 2 vence. \n");
-						printf("Com o valor de PIB per capta: %.2f. \n\n", PIBpercapita2);
+					printf("\nVocê escolheu : Comparação de PIB per capita e PIB.\n\n");
+					
+					//inicio comparação dos atributos
+					
+							//testes para vencedor, perdedor e empates:
+						vencedor = (PIBpercapita > PIBpercapita2 && pib > pib2 ); 
+						perdedor = (PIBpercapita < PIBpercapita2 && pib < pib2); 
+						empate1 = (PIBpercapita == PIBpercapita2 && pib == pib2);
+						empate2 = (PIBpercapita == PIBpercapita2 && pib != pib2);
+						empate3 = (PIBpercapita != PIBpercapita2 && pib == pib2);	
+					
+					if(vencedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta);
+						
+					}else if(perdedor == 1){
+						printf("A carta vencedora nos 2 atributos, foi: %s\n", CodigoDaCarta2);
+						
+					}else if(empate1 == 1){ 
+						printf("Houeve um empate nos 2 atributos, ambas cartas possuem o mesmo valor.\n");
+						
+					}else if(empate2 == 1 || empate3 == 1){
+						printf("houve uma empate, pelo menos um dos atributos, tem o mesmo valor nas duas cartas.\n");
+						printf("O PIB da carta 1 foi: %.2f . \n", pib);
+						printf("O PIB da carta 2 foi: %.2f . \n", pib2);
+						printf("O PIB per capita da carta 1 é: %.2f . \n", PIBpercapita);
+						printf("O PIB per capita da carta 2 é: %.2f . \n", PIBpercapita2);
 					}
-				break;
-				
-				case 6:  //opcao de numero 6
-					printf("Comparação de Super poder!\n");		
-				
-					if(soma_propriedades > soma_propriedades2){ // teste de comparação, verdadeiro para carta 1 vencedora; falso, carta 2 vence.
-						printf("### Carta 1 vence.\n");
-						printf("Com o valor de super poder: %d. \n", soma_propriedades);
-					}else{
-						printf("### Carta 2 vence. \n");
-						printf("Com o valor de super poder: %d. \n\n", soma_propriedades2);
-					}
-				break;
-				
+							//teste de possivel erro de digitação dos numeros:
+						if(vencedor == 0){
+							if(perdedor == 0){
+								if(empate1 == 0){
+									if(empate2 == 0){
+										if(empate3 == 0){
+											printf("\nNão foi possivel fazer a comparação, não tem vencedor, não tem perdedor, nem empate!\n\n");
+											printf("\nVerifique os numeros e tente novamente!\n\n");
+										}
+									}
+								}
+							}
+						}									
+					//fim comparação dos atributos
+					printf("teste\n");
+				break; // fim case 5
+		
 				default:
 					printf("Opção invalida! Tente novamente.\n"); // Escreve caso a opção escolhida não exista.
 			}
-				
-			
-				/*****Fim quem vence*/
+		
+	 	/*****Fim quem vence*/
 	
 	system ("pause");
     return 0;
